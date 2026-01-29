@@ -89,7 +89,7 @@ export function FilmStripGallery() {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const res = await fetch("/api/film-strip?perPage=21")
+        const res = await fetch("/api/film-strip?perPage=25")
         const json = await res.json()
         const images: FilmStripImage[] = Array.isArray(json.data) ? json.data : []
 
