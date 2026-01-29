@@ -46,7 +46,7 @@ interface HeroSectionFormDialogProps {
 const API_IMG = process.env.NEXT_PUBLIC_API_IMG || 'http://localhost:8000'
 
 const getImageUrl = (path: string) => {
-  if (!path) return '/placeholder.svg'
+  if (!path) return '/placeholder.png'
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return path
   }
@@ -201,12 +201,12 @@ export function HeroSectionFormDialog({ open, setOpen, initialData, onSubmit }: 
                   return (
                     <div key={index} className="relative rounded-lg overflow-hidden border-2 border-gray-200 bg-gray-50">
                       <img 
-                        src={preview || "/placeholder.svg"} 
+                        src={preview || "/placeholder.png"} 
                         alt={`Preview ${index + 1}`} 
                         className="w-full h-40 object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement
-                          target.src = '/placeholder.svg'
+                          target.src = '/placeholder.png'
                         }}
                       />
                       <button

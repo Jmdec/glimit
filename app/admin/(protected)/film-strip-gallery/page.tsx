@@ -47,7 +47,7 @@ export default function FilmStripGalleryPage() {
   const [totalPages, setTotalPages] = useState(1)
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -213,12 +213,12 @@ export default function FilmStripGalleryPage() {
         return imagePath ? (
           <div className="relative w-20 h-20 rounded overflow-hidden">
             <img
-              src={getImageUrl(imagePath) || "/placeholder.svg"}
+              src={getImageUrl(imagePath) || "/placeholder.png"}
               alt="Film strip"
               className="w-full h-full object-cover"
               onError={(e) => {
                 const target = e.target as HTMLImageElement
-                target.src = '/placeholder.svg'
+                target.src = '/placeholder.png'
               }}
             />
           </div>
@@ -412,7 +412,7 @@ export default function FilmStripGalleryPage() {
           {selectedItem && (
             <div className="space-y-4">
               <img
-                src={getImageUrl(selectedItem.image_path) || "/placeholder.svg"}
+                src={getImageUrl(selectedItem.image_path) || "/placeholder.png"}
                 alt="Film strip image"
                 className="w-full rounded-lg border border-gray-200"
               />

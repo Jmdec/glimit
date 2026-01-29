@@ -46,7 +46,7 @@ export default function News() {
   const newsItems = data?.data || [];
 
   const getImageUrl = (path: string) => {
-    if (!path) return "/placeholder.svg";
+    if (!path) return "/placeholder.png";
     if (path.startsWith("http")) return path;
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
     return `${API_IMG}/${cleanPath}`;
@@ -219,7 +219,7 @@ export default function News() {
                           <Image
                             src={news.images && news.images.length > 0 
                               ? getImageUrl(news.images[0].image_path) 
-                              : "/placeholder.svg"}
+                              : "/placeholder.png"}
                             alt={news.title}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

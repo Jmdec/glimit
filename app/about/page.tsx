@@ -439,7 +439,7 @@ export default function About() {
                     transition={{ duration: 0.6, type: "spring", stiffness: 120 }}
                   >
                     <Image
-                      src={member.image || "/placeholder.svg"}
+                      src={member.image || "/placeholder.png"}
                       alt={member.name}
                       fill
                       sizes="w-full h-full"

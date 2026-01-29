@@ -58,7 +58,7 @@ export default function AdminPortfolio() {
   const [imagePreview, setImagePreview] = useState<string>("");
 
   const getImageUrl = (path: string) => {
-    if (!path) return "/placeholder.svg";
+    if (!path) return "/placeholder.png";
     if (path.startsWith("http")) return path;
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
     return `${API_IMG}/${cleanPath}`;
@@ -517,7 +517,7 @@ export default function AdminPortfolio() {
                   className="w-full h-96 object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = '/placeholder.svg';
+                    target.src = '/placeholder.png';
                   }}
                 />
               </div>

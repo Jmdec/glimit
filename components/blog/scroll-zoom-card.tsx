@@ -62,7 +62,7 @@ export default function ScrollZoomCard({ post, index, onClick }: ScrollZoomCardP
 
         <div className="relative h-48 overflow-hidden">
           <motion.div className="w-full h-full" style={{ scale, opacity }}>
-            <img src={getImageSrc(post.image) || "/placeholder.svg"} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={getImageSrc(post.image) || "/placeholder.png"} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a0f0a] via-[#1a0f0a]/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 

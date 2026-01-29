@@ -61,7 +61,7 @@ export default function CategoriesPage() {
   const [categoryDescription, setCategoryDescription] = useState('')
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -398,7 +398,7 @@ export default function CategoriesPage() {
                   {previewUrls.map((url, index) => (
                     <div key={index} className="relative rounded-lg overflow-hidden border-2 border-gray-200 bg-gray-50">
                       <img
-                        src={url || "/placeholder.svg"}
+                        src={url || "/placeholder.png"}
                         alt={`Preview ${index + 1}`}
                         className="w-full h-32 object-cover"
                       />
@@ -474,12 +474,12 @@ export default function CategoriesPage() {
                     {selectedItem.images.map((image) => (
                       <div key={image.id} className="rounded-lg overflow-hidden border border-gray-200 bg-gray-50">
                         <img
-                          src={getImageUrl(image.image_path) || "/placeholder.svg"}
+                          src={getImageUrl(image.image_path) || "/placeholder.png"}
                           alt={image.alt_text || 'Category image'}
                           className="w-full h-40 object-cover"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement
-                            target.src = '/placeholder.svg'
+                            target.src = '/placeholder.png'
                           }}
                         />
                         <div className="p-2 text-xs text-gray-500">Order: #{image.sort_order}</div>

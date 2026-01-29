@@ -51,7 +51,7 @@ const AdminHeroSections = () => {
 
   // Helper function to get full image URL
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -300,7 +300,7 @@ const AdminHeroSections = () => {
               className="w-full h-full object-cover" 
               onError={(e) => {
                 const target = e.target as HTMLImageElement
-                target.src = '/placeholder.svg'
+                target.src = '/placeholder.png'
               }}
             />
             {imageCount > 1 && (

@@ -28,7 +28,7 @@ export function LensFocusImage({ src, alt, className = "" }: LensFocusImageProps
         }}
         className="w-full h-full"
       >
-        <Image src={src || "/placeholder.svg"} alt={alt} fill sizes="w-full h-full" className="object-cover" />
+        <Image src={src || "/placeholder.png"} alt={alt} fill sizes="w-full h-full" className="object-cover" />
       </motion.div>
 
       {/* Focus ring indicator */}

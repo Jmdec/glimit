@@ -70,7 +70,7 @@ export function GalleryLightbox({
           >
             <div className="relative w-full h-full">
               <Image
-                src={imageUrl || "/placeholder.svg"}
+                src={imageUrl || "/placeholder.png"}
                 alt={image.alt}
                 fill
                 className="object-contain"

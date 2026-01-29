@@ -4,17 +4,17 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
-import { Camera, Award, Users, Heart, Aperture, Star, CheckCircle2, Sparkles } from "lucide-react"
+import { Camera, Users, Heart, Aperture, Star, CheckCircle2, Sparkles, Award } from "lucide-react"
 import FloatingParticles from "../animated-golden-particles"
 
 // Use client-side accessible env vars
-const API_IMG = process.env.NEXT_PUBLIC_API_IMG || 'http://localhost:8000'
+const API_IMG = process.env.NEXT_PUBLIC_API_IMG || "http://localhost:8000"
 
 interface HeroImage {
   id: number
   image_path: string | string[]
   image_urls?: string[]
-  status: 'active' | 'inactive'
+  status: "active" | "inactive"
 }
 
 export function HeroSection() {
@@ -27,11 +27,11 @@ export function HeroSection() {
 
   // Helper function to get full image URL
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
-    if (path.startsWith('http://') || path.startsWith('https://')) {
+    if (!path) return "/placeholder.png"
+    if (path.startsWith("http://") || path.startsWith("https://")) {
       return path
     }
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path
     return `${API_IMG}/${cleanPath}`
   }
 
@@ -40,49 +40,43 @@ export function HeroSection() {
     const fetchHeroImages = async () => {
       try {
         setLoading(true)
-        
+
         // Use Next.js API route instead of direct Laravel API call
-        const response = await fetch('/api/hero-sections?status=active', {
-          cache: 'no-store',
+        const response = await fetch("/api/hero-sections?status=active", {
+          cache: "no-store",
           headers: {
-            'Accept': 'application/json',
+            Accept: "application/json",
           },
         })
 
-        console.log('Hero section fetch status:', response.status)
-
         if (!response.ok) {
-          console.error('Failed to fetch hero images:', response.statusText)
-          throw new Error('Failed to fetch hero images')
+          console.error("Failed to fetch hero images:", response.statusText)
+          throw new Error("Failed to fetch hero images")
         }
 
         const data = await response.json()
-        console.log('Hero section data:', data)
-        
         const heroSections: HeroImage[] = Array.isArray(data.data) ? data.data : Array.isArray(data) ? data : []
-        
+
         // Extract all image paths and convert to full URLs
         const images: string[] = []
-        heroSections.forEach(section => {
-          if (section.status === 'active') {
+        heroSections.forEach((section) => {
+          if (section.status === "active") {
             // Prefer image_urls if available (already full URLs from Laravel)
             if (Array.isArray(section.image_urls) && section.image_urls.length > 0) {
               images.push(...section.image_urls)
             } else if (Array.isArray(section.image_path)) {
-              images.push(...section.image_path.map(path => getImageUrl(path)))
+              images.push(...section.image_path.map((path) => getImageUrl(path)))
             } else if (section.image_path) {
               images.push(getImageUrl(section.image_path))
             }
           }
         })
 
-        console.log('Extracted hero images:', images)
-
         // Set images or use fallback
         if (images.length > 0) {
           setHeroImages(images)
         } else {
-          console.warn('No active hero images found, using fallback')
+          console.warn("No active hero images found, using fallback")
           // Fallback images if no images from API
           setHeroImages([
             "/photo/elegant-bride-in-white-wedding-dress-portrait-phot.jpg",
@@ -92,7 +86,7 @@ export function HeroSection() {
           ])
         }
       } catch (error) {
-        console.error('Error fetching hero images:', error)
+        console.error("Error fetching hero images:", error)
         // Use fallback images on error
         setHeroImages([
           "/photo/elegant-bride-in-white-wedding-dress-portrait-phot.jpg",
@@ -161,9 +155,9 @@ export function HeroSection() {
       {/* Dramatic black to gold gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-amber-950" />
       <div className="absolute inset-0 bg-gradient-to-t from-amber-600/20 via-transparent to-transparent" />
-      
+
       {/* Animated gold particles */}
-      <FloatingParticles count={20}/>
+      <FloatingParticles count={20} />
 
       {/* Floating gold orbs */}
       <motion.div
@@ -264,7 +258,7 @@ export function HeroSection() {
                     className="absolute inset-0"
                   >
                     <Image
-                      src={heroImages[currentImageIndex] || "/placeholder.svg"}
+                      src={heroImages[currentImageIndex] || "/placeholder.png"}
                       alt="Featured photography"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -273,8 +267,10 @@ export function HeroSection() {
                       loading={currentImageIndex === 0 ? "eager" : "lazy"}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
-                        target.src = '/placeholder.svg'
+                        target.src = "/placeholder.png"
                       }}
+                      placeholder="blur"
+                      blurDataURL={heroImages[currentImageIndex] || "/placeholder.png"}
                     />
                     {/* Gold gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 mix-blend-multiply" />
@@ -483,29 +479,6 @@ export function HeroSection() {
                 </motion.div>
               ))}
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 3.6, duration: 0.8 }}
-              className="flex items-center gap-4 pt-4 sm:pt-6 pb-4 sm:pb-0"
-            >
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <motion.div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-3 border-amber-500 bg-neutral-800 overflow-hidden shadow-lg"
-                    whileHover={{ scale: 1.2, zIndex: 10 }}
-                  >
-                    <Image src={`/happy-client-portrait-face-.jpg`} alt={`Client ${i}`} width={40} height={40} className="object-cover" />
-                  </motion.div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <p className="font-bold text-white">Trusted by 300+ clients</p>
-                <p className="text-amber-400 text-xs font-medium">Join our exclusive family</p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </motion.div>
@@ -516,7 +489,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-12 sm:bottom-20 left-1/2 -translate-x-1/2 z-20 hidden sm:block"
+        className="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 4, duration: 2, repeat: Number.POSITIVE_INFINITY }}

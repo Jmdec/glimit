@@ -44,7 +44,7 @@ export function FilmStrip({ images, direction = "left", speed = 30, className = 
         >
           {duplicatedImages.map((image, index) => (
             <div key={index} className="relative flex-shrink-0 w-32 h-24 md:w-48 md:h-36 bg-black overflow-hidden">
-              <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill sizes="w-full h-full" className="object-cover" />
+              <Image src={image.src || "/placeholder.png"} alt={image.alt} fill sizes="w-full h-full" className="object-cover" />
               {/* Film frame border */}
               <div className="absolute inset-0 border border-foreground/30 pointer-events-none" />
             </div>

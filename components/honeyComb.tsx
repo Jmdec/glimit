@@ -107,7 +107,7 @@ export function HoneycombGridGallery() {
   }, [galleryImages, isMobile])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -213,7 +213,7 @@ export function HoneycombGridGallery() {
                 >
                   <div className="relative w-full h-full">
                     <Image
-                      src={getImageUrl(cell.image.image_path) || "/placeholder.svg"}
+                      src={getImageUrl(cell.image.image_path) || "/placeholder.png"}
                       alt={cell.image.alt_text || `Hex ${cell.index + 1}`}
                       fill
                       sizes="(max-width: 768px) 180px, 280px"

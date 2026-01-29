@@ -89,7 +89,7 @@ export function CategoriesSection() {
   }, [])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -97,7 +97,7 @@ export function CategoriesSection() {
     return `${API_IMG}/${cleanPath}`
   }
 
-  const getFallbackImage = () => '/placeholder.svg'
+  const getFallbackImage = () => '/placeholder.png'
 
   return (
     <section className="py-16 relative overflow-hidden">
@@ -183,7 +183,7 @@ export function CategoriesSection() {
                         {/* Image container */}
                         <div className="relative w-full h-full">
                           <Image
-                            src={imageUrl || "/placeholder.svg"}
+                            src={imageUrl || "/placeholder.png"}
                             alt={category.name}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

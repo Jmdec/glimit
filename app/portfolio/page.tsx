@@ -105,7 +105,7 @@ export default function Portfolio() {
   };
 
   const getImageUrl = (path: string) => {
-    if (!path) return "/placeholder.svg";
+    if (!path) return "/placeholder.png";
     if (path.startsWith("http")) return path;
     return `${API_IMG}/${path}`;
   };
@@ -314,7 +314,7 @@ export default function Portfolio() {
                       <div className="bg-black p-4 pb-20 rounded-lg relative overflow-hidden">
                         <div className="relative aspect-4/5 overflow-hidden rounded">
                           <Image
-                            src={getImageUrl(image.image_path) || "/placeholder.svg"}
+                            src={getImageUrl(image.image_path) || "/placeholder.png"}
                             alt={image.alt}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

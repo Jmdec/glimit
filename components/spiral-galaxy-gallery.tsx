@@ -121,7 +121,7 @@ export function SpiralGalaxyGallery() {
   }, [galleryImages, isMobile])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -267,7 +267,7 @@ export function SpiralGalaxyGallery() {
                     }}
                   >
                     <Image
-                      src={getImageUrl(photo.image.image_path) || "/placeholder.svg"}
+                      src={getImageUrl(photo.image.image_path) || "/placeholder.png"}
                       alt={photo.image.alt_text || `Galaxy photo ${photo.id}`}
                       fill
                       sizes="(max-width: 768px) 150px, 220px"

@@ -116,7 +116,7 @@ export function DNAHelixGalleryCompact() {
   }, [galleryImages, isMobile])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -241,7 +241,7 @@ export function DNAHelixGalleryCompact() {
                   }}
                 >
                   <Image
-                    src={getImageUrl(photo.image.image_path) || "/placeholder.svg"}
+                    src={getImageUrl(photo.image.image_path) || "/placeholder.png"}
                     alt={photo.image.alt_text || `DNA photo ${photo.id}`}
                     fill
                     sizes="(max-width: 768px) 80px, 100px"

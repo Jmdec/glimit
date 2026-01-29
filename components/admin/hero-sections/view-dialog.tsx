@@ -28,7 +28,7 @@ interface HeroSectionViewDialogProps {
 const API_IMG = process.env.NEXT_PUBLIC_API_IMG || 'http://localhost:8000'
 
 const getImageUrl = (path: string) => {
-  if (!path) return '/placeholder.svg'
+  if (!path) return '/placeholder.png'
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return path
   }
@@ -74,7 +74,7 @@ export function HeroSectionViewDialog({ open, setOpen, heroSection }: HeroSectio
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
-                        target.src = '/placeholder.svg'
+                        target.src = '/placeholder.png'
                       }}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs py-1 px-2">

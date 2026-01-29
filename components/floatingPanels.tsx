@@ -124,7 +124,7 @@ export function FloatingPanelsGallery() {
   }, [isMounted, panels.length])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -229,7 +229,7 @@ export function FloatingPanelsGallery() {
                 {/* Image */}
                 <div className="relative w-full h-full">
                   <Image
-                    src={getImageUrl(panel.image.image_path) || "/placeholder.svg"}
+                    src={getImageUrl(panel.image.image_path) || "/placeholder.png"}
                     alt={panel.image.alt_text || `Panel ${index + 1}`}
                     fill
                     sizes="(max-width: 768px) 85vw, 50vw"

@@ -192,7 +192,7 @@ export default function Blog() {
                       viewport={{ once: true }}
                     >
                       <img
-                        src={getImageSrc(featuredPost.image) || "/placeholder.svg"}
+                        src={getImageSrc(featuredPost.image) || "/placeholder.png"}
                         alt={featuredPost.title}
                         className="absolute inset-0 w-full h-full object-cover"
                       />
@@ -325,7 +325,7 @@ export default function Blog() {
                 </DialogDescription>
               </DialogHeader>
               <div className="relative h-64 rounded-lg overflow-hidden my-4">
-                <img src={getImageSrc(post.image) || "/placeholder.svg"} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={getImageSrc(post.image) || "/placeholder.png"} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-linear-to-r from-[#1a0f0a]/60 to-transparent" />
               </div>
               <span className="block mb-4 text-xl font-medium text-gold/90 italic border-l-4 border-gold pl-3 py-1">{post.excerpt}</span>

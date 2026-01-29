@@ -127,7 +127,7 @@ export function BookshelfGallery() {
   }, [galleryImages, isMobile])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -265,7 +265,7 @@ export function BookshelfGallery() {
                           <div className="relative w-full h-full p-2">
                             <div className="relative w-full h-full rounded overflow-hidden">
                               <Image
-                                src={getImageUrl(book.image.image_path) || "/placeholder.svg"}
+                                src={getImageUrl(book.image.image_path) || "/placeholder.png"}
                                 alt={book.image.alt_text || `Book ${book.index + 1}`}
                                 fill
                                 sizes="(max-width: 768px) 80px, 120px"

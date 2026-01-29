@@ -181,7 +181,7 @@ export function ConstellationMapGallery() {
   }, [galleryImages, isMobile])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -349,7 +349,7 @@ export function ConstellationMapGallery() {
                 }}
               >
                 <Image
-                  src={getImageUrl(node.image.image_path) || "/placeholder.svg"}
+                  src={getImageUrl(node.image.image_path) || "/placeholder.png"}
                   alt={node.image.alt_text || `Node ${node.id}`}
                   fill
                   sizes="(max-width: 768px) 100px, 120px"

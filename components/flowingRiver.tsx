@@ -130,7 +130,7 @@ export function FlowingRiverGallery() {
   }, [isMounted])
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -226,7 +226,7 @@ export function FlowingRiverGallery() {
                 className="relative w-full h-full bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-shadow duration-300"
               >
                 <Image
-                  src={getImageUrl(node.image.image_path) || "/placeholder.svg"}
+                  src={getImageUrl(node.image.image_path) || "/placeholder.png"}
                   alt={node.image.alt_text || `Image ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 250px, 320px"

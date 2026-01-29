@@ -39,7 +39,7 @@ export function FocusBlurImage({
           ease: "easeOut",
         }}
       >
-        <Image src={src || "/placeholder.svg"} alt={alt} fill sizes="w-full h-full" className="object-cover" />
+        <Image src={src || "/placeholder.png"} alt={alt} fill sizes="w-full h-full" className="object-cover" />
       </motion.div>
 
       {/* Auto-focus brackets that appear then fade */}

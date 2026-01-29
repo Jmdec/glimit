@@ -212,7 +212,7 @@ export function ParticleSwarmGalleryAllVisible() {
   }
 
   const getImageUrl = (path: string) => {
-    if (!path) return '/placeholder.svg'
+    if (!path) return '/placeholder.png'
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path
     }
@@ -290,7 +290,7 @@ export function ParticleSwarmGalleryAllVisible() {
               >
                 <div className="relative w-full h-full rounded-lg overflow-hidden shadow-2xl border border-white/10">
                   <Image
-                    src={getImageUrl(particle.image.image_path) || "/placeholder.svg"}
+                    src={getImageUrl(particle.image.image_path) || "/placeholder.png"}
                     alt={particle.image.alt_text || `Gallery image ${particle.id}`}
                     fill
                     sizes="(max-width: 768px) 120px, 160px"
