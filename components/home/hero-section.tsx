@@ -157,10 +157,10 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-amber-600/20 via-transparent to-transparent" />
 
       {/* Animated gold particles */}
-      <FloatingParticles count={20} />
+      {/* <FloatingParticles count={20} /> */}
 
       {/* Floating gold orbs */}
-      <motion.div
+      {/* <motion.div
         className="absolute top-20 right-20 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
         animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
@@ -169,7 +169,7 @@ export function HeroSection() {
         className="absolute bottom-20 left-10 w-80 h-80 bg-amber-400/15 rounded-full blur-3xl"
         animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.15, 0.3] }}
         transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
+      /> */}
 
       {/* Gold flash overlay */}
       <motion.div

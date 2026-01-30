@@ -109,7 +109,7 @@ export function CategoriesSection() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#d4a574]/10 rounded-full blur-3xl" />
 
       {/* Animated gold particles */}
-      <FloatingParticles count={15} />
+      {/* <FloatingParticles count={15} /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
