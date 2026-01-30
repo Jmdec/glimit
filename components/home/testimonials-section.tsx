@@ -75,7 +75,7 @@ export function TestimonialsSection() {
   return (
     <section className="py-20 md:py-28 bg-black overflow-hidden relative">
       {/* Animated gold particles */}
-      <FloatingParticles count={20} />
+      {/* <FloatingParticles count={10} /> */}
 
       {/* Floating camera lens effect */}
       <motion.div

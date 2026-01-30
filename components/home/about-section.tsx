@@ -5,9 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, Sparkles, Camera } from "lucide-react"
 import { useRef } from "react"
-import { CountingNumber } from "../ui/shadcn-io/counting-number"
 import { useIsMobile, useIsTablet } from "@/hooks/use-device"
-import FloatingParticles from "../animated-golden-particles"
 
 const stats = [
   { value: 20, suffix: "+", label: "Projects Completed" },
@@ -136,7 +134,7 @@ export default function AboutSection() {
       />
 
       {/* Animated orange particles with parallax depth */}
-      <FloatingParticles count={50} />
+      {/* <FloatingParticles count={10} /> */}
 
       {/* Film perforations - bright orange */}
       <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-black/95 to-transparent z-20">
@@ -361,7 +359,6 @@ export default function AboutSection() {
                   <div className="text-black/90">1/250s</div>
                   <div className="text-black/90">ISO 100</div>
                 </motion.div>
-
               </div>
             </ApertureReveal>
           </motion.div>
@@ -384,7 +381,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-gray-400 text-sm lg:text-xl leading-relaxed"
+              className="text-gray-300 text-sm lg:text-xl leading-relaxed"
             >
               From intimate portraits to grand celebrations, we approach each session with the same dedication to excellence and attention to detail
               that has made us a trusted name in photography.
@@ -528,7 +525,7 @@ export default function AboutSection() {
                     stiffness: 150,
                   }}
                 >
-                  <CountingNumber number={stat.value} />
+                  {stat.value}
                   {stat.suffix}
                 </motion.div>
                 <p className="text-sm sm:text-base md:text-lg uppercase tracking-widest font-bold" style={{ color: "#ff9500" }}>

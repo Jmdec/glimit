@@ -150,7 +150,7 @@ export function Navigation() {
           : "bg-black/40 backdrop-blur-md border-b border-gold/10"
       }`}
     >
-      <FloatingParticles />
+      <FloatingParticles count={5}/>
 
       <div ref={menuRef} className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-5 relative">
         <div className="flex items-center justify-between">

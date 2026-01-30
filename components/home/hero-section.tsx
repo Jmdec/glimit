@@ -123,8 +123,7 @@ export function HeroSection() {
   const stats = [
     { icon: Camera, value: "500+", label: "Photo Sessions" },
     { icon: Users, value: "300+", label: "Happy Clients" },
-    { icon: Award, value: "15+", label: "Awards Won" },
-    { icon: Heart, value: "10", label: "Years Experience" },
+    { icon: Heart, value: "1+", label: "Years Experience" },
   ]
 
   const services = ["Wedding Photography", "Portrait Sessions", "Event Coverage", "Commercial Shoots"]
@@ -247,7 +246,7 @@ export function HeroSection() {
                 />
               </motion.div>
 
-              <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 overflow-hidden shadow-2xl shadow-amber-900/50 border-4 border-amber-500/30">
+              <div className="relative aspect-3/4 w-full max-w-md mx-auto overflow-hidden shadow-2xl shadow-amber-900/50 border-4 border-amber-500/30">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentImageIndex}

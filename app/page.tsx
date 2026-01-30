@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/home/hero-section"
 import { FilmStripGallery } from "@/components/home/film-strip-gallery"
 import { CategoriesSection } from "@/components/home/categories-section"
-import  AboutSection  from "@/components/home/about-section"
+import AboutSection from "@/components/home/about-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
 
